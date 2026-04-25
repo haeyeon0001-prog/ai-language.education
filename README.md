@@ -6,14 +6,18 @@
 
 大学で中国語・韓国語・日本語を教える教員が、AI を活用して教育の効率化を図る実践を共有するサイトです。
 
+## 公開URL
+
+👉 https://baihaiyan.com/
+
 ## Setup
 
 `index.html` をブラウザで開くだけで動作します。  
 GitHub Pages を有効にすれば、そのまま公開サイトとして使えます。
 
-## GitHub Pages で公開する手順
+## GitHub Pages + 独自ドメインの構成
 
-1. リポジトリの **Settings** → **Pages** を開く
-2. Source を **Deploy from a branch** に設定
-3. Branch を **main** / **(root)** に設定して Save
-4. 数分後に `https://<username>.github.io/ai-language-education/` で公開されます
+- ホスティング：GitHub Pages（Public リポジトリ・無料）
+- 独自ドメイン：`baihaiyan.com`（Cloudflare Registrar）
+- DNS：Cloudflare（無料プラン）
+- HTTPS：Let's Encrypt（GitHub Pages が自動発行）
