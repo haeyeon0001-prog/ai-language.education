@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI✖️言語教育・言語学習</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --sky: #7BBFEA;
+    --sky-deep: #4A9ED6;
+    --sakura: #E8A0BF;
+    --sakura-deep: #D87DA8;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --text-tertiary: #86868b;
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --border: rgba(0,0,0,0.06);
+    --max-w: 980px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', -apple-system, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Sticky Nav ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--text-primary); }
+
+  .lang-pills {
+    display: flex;
+    gap: 4px;
+  }
+
+  .lang-pills a {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: var(--text-tertiary);
+    transition: all 0.2s;
+  }
+
+  .lang-pills a:hover { background: var(--bg-alt); color: var(--text-secondary); }
+  .lang-pills a.active { background: var(--text-primary); color: #fff; }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 100px 24px 80px;
+    background: var(--bg);
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--sky-deep), var(--sakura-deep));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .hero-sub {
+    margin-top: 16px;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+  }
+
+  .hero .hero-name {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
+
+  .hero .hero-name strong {
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding: 80px 24px;
+  }
+
+  .section.alt {
+    background: var(--bg-alt);
+  }
+
+  .section-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sky-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+
+  .section-lead {
+    font-size: 19px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 680px;
+    font-weight: 400;
+  }
+
+  /* ── Profile ── */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 48px;
+  }
+
+  .profile-text {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .profile-text p { margin-bottom: 16px; }
+  .profile-text p:last-child { margin-bottom: 0; }
+
+  .profile-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .meta-item {}
+
+  .meta-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+  }
+
+  .meta-value {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .profile-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--sky-deep);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .profile-cta:hover { gap: 10px; }
+
+  .profile-cta .arrow {
+    font-size: 20px;
+    transition: transform 0.2s;
+  }
+
+  /* ── Purpose cards ── */
+  .purpose-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .purpose-card {
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 40px 32px;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .section.alt .purpose-card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .purpose-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+
+  .purpose-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .purpose-icon.sky { background: linear-gradient(135deg, #D6ECF8, #B8DDF5); }
+  .purpose-icon.sakura { background: linear-gradient(135deg, #F5D5E3, #EDBED5); }
+
+  .purpose-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .purpose-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* ── Examples ── */
+  .example-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .example-item {
+    background: var(--bg-alt);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .section:not(.alt) .example-item {
+    background: var(--bg-alt);
+  }
+
+  .section.alt .example-item {
+    background: var(--bg);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .example-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .example-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .example-badge.tool { background: rgba(123,191,234,0.2); color: var(--sky-deep); }
+  .example-badge.material { background: rgba(232,160,191,0.2); color: var(--sakura-deep); }
+  .example-badge.workflow { background: rgba(52,199,89,0.15); color: #248A3D; }
+
+  .example-item p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ── Blog ── */
+  .blog-grid {
+    margin-top: 48px;
+  }
+
+  .blog-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .blog-card:first-child { padding-top: 0; }
+  .blog-card:last-child { border-bottom: none; }
+  .blog-card:hover { opacity: 0.7; }
+
+  .blog-card-date {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+  }
+
+  .blog-card-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .blog-card-excerpt {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .blog-card-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .blog-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .blog-tag.sky { background: rgba(123,191,234,0.15); color: var(--sky-deep); }
+  .blog-tag.sakura { background: rgba(232,160,191,0.15); color: var(--sakura-deep); }
+
+  .blog-card-arrow {
+    font-size: 22px;
+    color: var(--text-tertiary);
+    padding-top: 8px;
+  }
+
+  /* Blog post */
+  .blog-post-view {
+    display: none;
+    margin-top: 48px;
+  }
+
+  .blog-post-view.active { display: block; }
+
+  .blog-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 15px;
+    color: var(--sky-deep);
+    text-decoration: none;
+    font-weight: 400;
+    cursor: pointer;
+    margin-bottom: 32px;
+    transition: gap 0.2s;
+  }
+
+  .blog-back:hover { gap: 8px; }
+
+  .blog-post-date {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+  }
+
+  .blog-post-title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .blog-post-tags { margin-bottom: 32px; display: flex; gap: 6px; }
+
+  .blog-post-content {
+    max-width: 680px;
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .blog-post-content p { margin-bottom: 18px; }
+
+  .blog-post-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 32px 0 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-post-content .callout-box {
+    background: var(--bg-alt);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+
+  .blog-post-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+
+  .blog-post-content ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .blog-post-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sky);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--bg-alt);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--text-primary); }
+
+  /* ── Fade-in animation ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero { padding: 64px 24px 56px; }
+    .hero h1 { font-size: 36px; }
+    .hero .hero-sub { font-size: 17px; }
+    .section { padding: 56px 24px; }
+    .section-title { font-size: 28px; }
+    .section-lead { font-size: 17px; }
+    .profile-grid { grid-template-columns: 1fr; gap: 32px; }
+    .purpose-cards { grid-template-columns: 1fr; }
+    .example-grid { grid-template-columns: 1fr; }
+    .blog-card { grid-template-columns: 1fr; }
+    .blog-card-arrow { display: none; }
+    .blog-post-title { font-size: 26px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">AI ✖️ 言語教育</a>
+    <ul class="nav-links">
+      <li><a href="#about">運営者紹介</a></li>
+      <li><a href="#purpose">このサイトについて</a></li>
+      <li><a href="#examples">共有例</a></li>
+      <li><a href="#blog">ブログ</a></li>
+    </ul>
+    <div class="lang-pills">
+      <a href="ai-language-education-ja.html" class="active">JP</a>
+      <a href="ai-language-education-en.html">EN</a>
+      <a href="ai-language-education-ko.html">KO</a>
+      <a href="ai-language-education-zh.html">ZH</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1 class="fade-in">AI ✖️ 言語教育・言語学習</h1>
+  <p class="hero-sub fade-in">語学教員のための AI 活用情報サイト</p>
+  <p class="hero-name fade-in"><strong>白 海燕 博士（学術）</strong></p>
+</section>
+
+<!-- About -->
+<section class="section alt" id="about">
+  <div class="section-inner">
+    <p class="section-label fade-in">運営者紹介</p>
+    <h2 class="section-title fade-in">白 海燕　博士（学術）</h2>
+    <p class="section-lead fade-in">Bai Haiyan / 백해연</p>
+
+    <div class="profile-grid fade-in">
+      <div class="profile-text">
+        <p>中国生まれの朝鮮族です。中学校から日本語を学び始め、大学では日本語を専攻しました。その後、日本の大学院に進学し言語学を専攻。数年前には韓国の大学で韓国手話コーパス構築プロジェクトに研究員として参加し、手話の世界にも触れることができました。</p>
+        <p>言葉を考え、学ぶことが好きで、日常的にさまざまな言語に触れながら過ごしてきました。現在は大学で中国語・韓国語・日本語を教えながら、言葉のなぜを知るために掘り下げたものを論文にしたり、どうすれば言語をより速く習得できるか、教える側と学ぶ側の両方の効率をどう上げられるかを日々模索しています。</p>
+      </div>
+      <div class="profile-meta">
+        <div class="meta-item">
+          <p class="meta-label">言語</p>
+          <p class="meta-value">韓国・朝鮮語と中国語のバイリンガル、日本語、英語</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">教育歴</p>
+          <p class="meta-value">大学での韓国語・中国語・日本語教育に従事</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">AI 応用</p>
+          <p class="meta-value">授業設計・教材作成・学習支援へのAI活用を実践中。G検定（JDLA）取得。</p>
+        </div>
+        <a class="profile-cta" href="https://researchmap.jp/haeyeon" target="_blank" rel="noopener">
+          研究業績を見る <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Purpose -->
+<section class="section" id="purpose">
+  <div class="section-inner">
+    <p class="section-label fade-in">このサイトについて</p>
+    <h2 class="section-title fade-in">AIで、教える時間を<br>もっと価値あるものに。</h2>
+    <p class="section-lead fade-in">語学教員の仕事には反復的な作業が多くあります。AIを活用することで、そうした作業を効率化し、空いた時間を授業の改善や学生との対話に充てる。このサイトでは、私自身が試しているAI活用の方法やツールを具体的に共有していきます。</p>
+
+    <div class="purpose-cards fade-in">
+      <div class="purpose-card">
+        <div class="purpose-icon sky">⚡</div>
+        <h3>反復作業を減らす</h3>
+        <p>問題作成、採点補助、語彙リスト整理など、繰り返しの多い作業をAIで省力化。手を動かす時間を、考える時間に変えます。</p>
+      </div>
+      <div class="purpose-card">
+        <div class="purpose-icon sakura">✦</div>
+        <h3>資料作成を時短する</h3>
+        <p>スライド、配布物、音声教材の作成にAIを活用。準備時間を大幅に削減し、授業の質に集中できる環境をつくります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Examples -->
+<section class="section alt" id="examples">
+  <div class="section-inner">
+    <p class="section-label fade-in">共有例</p>
+    <h2 class="section-title fade-in">実際に使っている方法。</h2>
+    <p class="section-lead fade-in">授業や準備で活用している例です。今後も随時追加していきます。</p>
+
+    <div class="example-grid fade-in">
+      <div class="example-item">
+        <span class="example-badge tool">ツール</span>
+        <p>ChatGPT / Claude を使った韓国語・中国語の練習問題自動生成</p>
+      </div>
+      <div class="example-item">
+        <span class="example-badge material">教材</span>
+        <p>AIで作成した語彙リスト・単語帳テンプレート</p>
+      </div>
+      <div class="example-item">
+        <span class="example-badge workflow">ワークフロー</span>
+        <p>学生の作文に対するAIフィードバックの活用方法</p>
+      </div>
+      <div class="example-item">
+        <span class="example-badge material">教材</span>
+        <p>AIを使った授業スライドの効率的な作成手順</p>
+      </div>
+      <div class="example-item">
+        <span class="example-badge tool">ツール</span>
+        <p>TTS（テキスト読み上げ）によるリスニング教材の作成</p>
+      </div>
+      <div class="example-item">
+        <span class="example-badge workflow">ワークフロー</span>
+        <p>試験問題のバリエーション自動生成と整理</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section" id="blog">
+  <div class="section-inner">
+    <p class="section-label fade-in">ブログ</p>
+    <h2 class="section-title fade-in">最近の記事。</h2>
+
+    <div id="blog-list" class="blog-grid fade-in">
+
+      <div class="blog-card" onclick="showPost('post-1')">
+        <div>
+          <p class="blog-card-date">2026年4月12日</p>
+          <p class="blog-card-title">サイトを開設しました</p>
+          <p class="blog-card-excerpt">AI✖️言語教育・言語学習のサイトを開設しました。語学教員としてAIをどう活用しているか、少しずつ記録していきます。</p>
+          <div class="blog-card-tags">
+            <span class="blog-tag sky">お知らせ</span>
+          </div>
+        </div>
+        <span class="blog-card-arrow">›</span>
+      </div>
+
+      <div class="blog-card" onclick="showPost('post-2')">
+        <div>
+          <p class="blog-card-date">2026年4月12日</p>
+          <p class="blog-card-title">ChatGPTで韓国語の穴埋め問題を5分で作る</p>
+          <p class="blog-card-excerpt">授業で使う穴埋め問題を手作業で作ると時間がかかりますが、プロンプトを工夫すれば数分で複数パターンの問題が生成できます。</p>
+          <div class="blog-card-tags">
+            <span class="blog-tag sakura">韓国語</span>
+            <span class="blog-tag sky">ChatGPT</span>
+          </div>
+        </div>
+        <span class="blog-card-arrow">›</span>
+      </div>
+
+    </div>
+
+    <!-- Post 1 -->
+    <div class="blog-post-view" id="post-1">
+      <a class="blog-back" onclick="hidePost('post-1')"><span>‹</span> 一覧に戻る</a>
+      <p class="blog-post-date">2026年4月12日</p>
+      <h3 class="blog-post-title">サイトを開設しました</h3>
+      <div class="blog-post-tags">
+        <span class="blog-tag sky">お知らせ</span>
+      </div>
+      <div class="blog-post-content">
+        <p>AI✖️言語教育・言語学習のサイトを開設しました。</p>
+        <p>私は大学で韓国語と中国語を教えていますが、授業準備や教材作成にAIを取り入れるようになってから、作業の進め方が大きく変わりました。最初は試行錯誤の連続でしたが、うまく使えるようになると、時間の使い方が確実に変わります。</p>
+        <p>このサイトでは、私自身の経験をもとに、語学教員がAIを活用するための具体的な方法を共有していきます。完璧な方法論というよりは、「実際に試してみてどうだったか」という実践記録です。</p>
+        <p>同じように語学を教えている先生方のお役に立てれば嬉しいです。</p>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="blog-post-view" id="post-2">
+      <a class="blog-back" onclick="hidePost('post-2')"><span>‹</span> 一覧に戻る</a>
+      <p class="blog-post-date">2026年4月12日</p>
+      <h3 class="blog-post-title">ChatGPTで韓国語の穴埋め問題を5分で作る</h3>
+      <div class="blog-post-tags">
+        <span class="blog-tag sakura">韓国語</span>
+        <span class="blog-tag sky">ChatGPT</span>
+      </div>
+      <div class="blog-post-content">
+        <p>韓国語の授業では、文法の定着のために穴埋め問題を頻繁に使います。ただ、レベルや文法項目に合わせて毎回作り直すのは時間がかかります。</p>
+
+        <h4>やり方</h4>
+        <p>ChatGPTに以下のようなプロンプトを入力します：</p>
+        <div class="callout-box">
+          「韓国語の初級文法（-아/어요体）を練習する穴埋め問題を10問作成してください。日常会話で使う自然な文を使い、答えも一緒に出力してください。」
+        </div>
+        <p>出力された問題を確認・修正し、そのまま授業で使うことができます。文法項目やレベルを変えるだけで、異なるバリエーションの問題を素早く作れます。</p>
+
+        <h4>ポイント</h4>
+        <ul>
+          <li>プロンプトに「レベル」「文法項目」「問題数」を明示すると精度が上がる</li>
+          <li>出力結果は必ず確認し、不自然な表現があれば修正する</li>
+          <li>一度良いプロンプトができたら、テンプレートとして保存しておくと便利</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#about">運営者紹介</a>
+      <a href="#purpose">このサイトについて</a>
+      <a href="#examples">共有例</a>
+      <a href="#blog">ブログ</a>
+    </div>
+    <p>© 2026 白海燕 — AI ✖️ 言語教育・言語学習</p>
+  </div>
+</footer>
+
+<script>
+// Blog show/hide
+function showPost(id) {
+  document.getElementById('blog-list').style.display = 'none';
+  document.getElementById(id).classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function hidePost(id) {
+  document.getElementById(id).classList.remove('active');
+  document.getElementById('blog-list').style.display = 'block';
+}
+
+// Scroll fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
