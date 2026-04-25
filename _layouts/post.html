@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<article class="blog-post">
+  <div class="blog-post-inner">
+    <a class="blog-back" href="{{ '/blog/' | relative_url }}"><span>‹</span> 一覧に戻る</a>
+
+    <p class="blog-post-date">{{ page.date | date: "%Y年%-m月%-d日" }}</p>
+    <h1 class="blog-post-title">{{ page.title }}</h1>
+
+    {% if page.tags and page.tags != empty %}
+    <div class="blog-post-tags">
+      {% for tag in page.tags %}
+      <span class="blog-tag {% if tag == '韓国語' or tag == 'お知らせ' %}sky{% elsif tag == '中国語' or tag == 'ChatGPT' %}sakura{% else %}green{% endif %}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="blog-post-content">
+      {{ content }}
+    </div>
+
+    <nav class="post-nav">
+      {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}">
+        <p class="post-nav-label">‹ 前の記事</p>
+        <p class="post-nav-title">{{ page.previous.title }}</p>
+      </a>
+      {% else %}<span></span>{% endif %}
+
+      {% if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}">
+        <p class="post-nav-label">次の記事 ›</p>
+        <p class="post-nav-title">{{ page.next.title }}</p>
+      </a>
+      {% else %}<span></span>{% endif %}
+    </nav>
+  </div>
+</article>

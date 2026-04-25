@@ -1,0 +1,35 @@
+---
+layout: page
+title: ブログ
+permalink: /blog/
+---
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">ブログ</p>
+    <h1 class="section-title fade-in">記事一覧</h1>
+    <p class="section-lead fade-in">語学教員としての AI 活用について、実践記録を投稿しています。</p>
+
+    <div class="blog-grid fade-in">
+      {% for post in site.posts %}
+      <a class="blog-card" href="{{ post.url | relative_url }}">
+        <div>
+          <p class="blog-card-date">{{ post.date | date: "%Y年%-m月%-d日" }}</p>
+          <p class="blog-card-title">{{ post.title }}</p>
+          {% if post.excerpt %}
+          <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          {% endif %}
+          {% if post.tags and post.tags != empty %}
+          <div class="blog-card-tags">
+            {% for tag in post.tags %}
+            <span class="blog-tag {% if tag == '韓国語' or tag == 'お知らせ' %}sky{% elsif tag == '中国語' or tag == 'ChatGPT' %}sakura{% else %}green{% endif %}">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <span class="blog-card-arrow">›</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+title: AI ✖️ 言語教育・言語学習
+description: 語学教員のための AI 活用情報サイト
+author: 白海燕
+url: https://baihaiyan.com
+baseurl: ""
+lang: ja
+
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - .claude
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
