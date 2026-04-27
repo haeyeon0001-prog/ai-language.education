@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+locale: 'ja'
+
+site_url: https://baihaiyan.com
+display_url: https://baihaiyan.com
+logo_url: https://baihaiyan.com/
+
+collections:
+  - name: "blog"
+    label: "ブログ記事"
+    label_singular: "ブログ記事"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "投稿日", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - label: "タグ"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - { label: "お知らせ", value: "お知らせ" }
+          - { label: "韓国語", value: "韓国語" }
+          - { label: "中国語", value: "中国語" }
+          - { label: "日本語", value: "日本語" }
+          - { label: "ChatGPT", value: "ChatGPT" }
+          - { label: "Claude", value: "Claude" }
+          - { label: "授業設計", value: "授業設計" }
+          - { label: "教材作成", value: "教材作成" }
+      - { label: "概要（一覧に表示される短い説明）", name: "excerpt", widget: "text", required: false }
+      - { label: "本文", name: "body", widget: "markdown" }

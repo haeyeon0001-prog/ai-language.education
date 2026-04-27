@@ -22,5 +22,6 @@ exclude:
   - CNAME
   - Gemfile
   - Gemfile.lock
+  - netlify.toml
   - vendor
   - node_modules
