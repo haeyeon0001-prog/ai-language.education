@@ -51,10 +51,6 @@ T = [
      "Practical AI for language teachers",
      "어학 교원을 위한 AI 활용 정보 사이트",
      "面向语言教师的 AI 应用信息网站"),
-    ("<strong>白 海燕 博士（学術）</strong>",
-     "<strong>Haiyan Bai, Ph.D.</strong>",
-     "<strong>백해연 박사(학술)</strong>",
-     "<strong>白海燕 博士（学术）</strong>"),
 
     # ── about
     ('<p class="section-label fade-in">運営者紹介</p>',
