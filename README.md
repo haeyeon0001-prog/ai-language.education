@@ -17,3 +17,11 @@ GitHub Pages を有効にすれば、そのまま公開サイトとして使え�
 2. Source を **Deploy from a branch** に設定
 3. Branch を **main** / **(root)** に設定して Save
 4. 数分後に `https://<username>.github.io/ai-language-education/` で公開されます
+
+## 多言語ページ（EN / KO / ZH）
+
+`en.html`・`ko.html`・`zh.html` は `index.html`（日本語）から自動生成しています。直接編集しないでください。
+
+1. `index.html` を編集する
+2. 文章を変えた・追加した場合は、`i18n/build.py` の翻訳表に同じ文と訳を追加する
+3. `python3 i18n/build.py` を実行する（翻訳漏れがあると警告が出ます）
