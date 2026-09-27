@@ -493,6 +493,194 @@
     background: var(--sky);
   }
 
+  /* ── Books ── */
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 28px;
+    margin-top: 48px;
+  }
+
+  .book-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-cover {
+    display: block;
+    width: 100%;
+    max-width: 230px;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 12px 28px rgba(0,0,0,0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .book-cover:hover {
+    transform: translateY(-6px) rotate(-0.6deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1), 0 20px 40px rgba(0,0,0,0.16);
+  }
+
+  .book-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+  }
+
+  .cover-amazon {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.94);
+    color: #1d1d1f;
+    padding: 4px 10px;
+    border-radius: 100px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .book-cover:hover .cover-amazon,
+  .book-cover:focus-visible .cover-amazon { opacity: 1; transform: none; }
+
+  .book-lang {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sakura-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .book-title {
+    margin-top: 4px;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+  }
+
+  .book-sub {
+    margin-top: 2px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  .book-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .book-links {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .pill-link.primary { background: var(--text-primary); color: #fff; }
+  .pill-link.primary:hover { background: #3a3a3c; }
+  .pill-link.ghost { background: rgba(123,191,234,0.15); color: var(--sky-deep); }
+  .pill-link.ghost:hover { background: rgba(123,191,234,0.28); }
+
+  .books-all { margin-top: 48px; }
+
+  /* ── Apps ── */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .app-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-alt);
+    border-radius: 18px;
+    padding: 28px 24px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .app-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .app-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .app-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .app-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .app-meta {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .app-open {
+    font-size: 14px;
+    color: var(--sky-deep);
+    font-weight: 500;
+  }
+
+  .app-card:hover .app-open { text-decoration: underline; }
+
+  .app-group-title {
+    margin-top: 56px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  .app-group-title + .app-grid { margin-top: 16px; }
+
   /* ── Footer ── */
   .footer {
     background: var(--bg-alt);
@@ -546,6 +734,13 @@
     .profile-grid { grid-template-columns: 1fr; gap: 32px; }
     .purpose-cards { grid-template-columns: 1fr; }
     .example-grid { grid-template-columns: 1fr; }
+    .book-grid { grid-template-columns: 1fr; gap: 36px; }
+    .book-card { display: grid; grid-template-columns: 116px 1fr; column-gap: 18px; align-items: start; }
+    .book-card > .book-cover { grid-row: 1 / span 6; }
+    .book-lang { margin-top: 0; }
+    .cover-amazon { display: none; }
+    .book-title { font-size: 17px; }
+    .app-grid { grid-template-columns: 1fr; }
     .blog-card { grid-template-columns: 1fr; }
     .blog-card-arrow { display: none; }
     .blog-post-title { font-size: 26px; }
@@ -562,6 +757,8 @@
     <ul class="nav-links">
       <li><a href="#about">運営者紹介</a></li>
       <li><a href="#purpose">このサイトについて</a></li>
+      <li><a href="#books">著書</a></li>
+      <li><a href="#apps">アプリ</a></li>
       <li><a href="#examples">共有例</a></li>
       <li><a href="#blog">ブログ</a></li>
     </ul>
@@ -632,6 +829,180 @@
         <h3>資料作成を時短する</h3>
         <p>スライド、配布物、音声教材の作成にAIを活用。準備時間を大幅に削減し、授業の質に集中できる環境をつくります。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Books -->
+<section class="section alt" id="books">
+  <div class="section-inner">
+    <p class="section-label fade-in">著書</p>
+    <h2 class="section-title fade-in">AIとつくった教科書。</h2>
+    <p class="section-lead fade-in">授業での実践をもとに、AIを活用して企画・執筆・音声制作まで行った教科書です。多くの本に音声と練習アプリがついていて、スマートフォンからすぐに学習できます。表紙をクリックするとAmazonのページが開きます。</p>
+
+    <div class="book-grid fade-in">
+
+      <div class="book-card">
+        <a class="book-cover" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%81%8B%E3%82%89%E5%BA%83%E3%81%8C%E3%82%8B%E9%9F%93%E5%9B%BD%E8%AA%9E%E3%81%AE%E4%B8%96%E7%95%8C+55%E5%AD%97%E3%81%A7%E8%AA%AD%E3%81%BF%E8%A7%A3%E3%81%8F+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener" aria-label="『漢字から広がる韓国語の世界 入門編』をAmazonで見る">
+          <img src="images/books/kankoku-nyumon.jpg" alt="『漢字から広がる韓国語の世界 入門編』表紙" loading="lazy">
+          <span class="cover-amazon">Amazon ›</span>
+        </a>
+        <p class="book-lang">韓国語 × 漢字</p>
+        <h3 class="book-title">漢字から広がる韓国語の世界 入門編</h3>
+        <p class="book-sub">55字で読み解く、芋づる式漢字語学習</p>
+        <p class="book-desc">「人（인）」など基本の55字から、韓国語の漢字語を芋づる式に覚える入門編。TOPIK1〜4級の語彙に対応。練習アプリつき。</p>
+        <div class="book-links">
+          <a class="pill-link primary" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%81%8B%E3%82%89%E5%BA%83%E3%81%8C%E3%82%8B%E9%9F%93%E5%9B%BD%E8%AA%9E%E3%81%AE%E4%B8%96%E7%95%8C+55%E5%AD%97%E3%81%A7%E8%AA%AD%E3%81%BF%E8%A7%A3%E3%81%8F+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで見る</a>
+          <a class="pill-link ghost" href="https://haeyeon0001-prog.github.io/kanji55-practice/" target="_blank" rel="noopener">練習アプリ</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <a class="book-cover" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%81%8B%E3%82%89%E5%BA%83%E3%81%8C%E3%82%8B%E9%9F%93%E5%9B%BD%E8%AA%9E%E3%81%AE%E4%B8%96%E7%95%8C+%E4%B8%AD%E7%B4%9A%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener" aria-label="『漢字から広がる韓国語の世界 中級編』をAmazonで見る">
+          <img src="images/books/kankoku-chukyu.jpg" alt="『漢字から広がる韓国語の世界 中級編』表紙" loading="lazy">
+          <span class="cover-amazon">Amazon ›</span>
+        </a>
+        <p class="book-lang">韓国語 × 漢字</p>
+        <h3 class="book-title">漢字から広がる韓国語の世界 中級編</h3>
+        <p class="book-sub">199字で読み解く漢字語</p>
+        <p class="book-desc">199字の漢字音を手がかりに、中級レベルの漢字語を体系的に広げていく一冊。TOPIK1〜4級語彙、練習アプリつき。</p>
+        <div class="book-links">
+          <a class="pill-link primary" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%81%8B%E3%82%89%E5%BA%83%E3%81%8C%E3%82%8B%E9%9F%93%E5%9B%BD%E8%AA%9E%E3%81%AE%E4%B8%96%E7%95%8C+%E4%B8%AD%E7%B4%9A%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで見る</a>
+          <a class="pill-link ghost" href="https://haeyeon0001-prog.github.io/kanji55-practice/chukyu/" target="_blank" rel="noopener">練習アプリ</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <a class="book-cover" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%81%8B%E3%82%89%E5%BA%83%E3%81%8C%E3%82%8B%E9%9F%93%E5%9B%BD%E8%AA%9E%E3%81%AE%E4%B8%96%E7%95%8C+%E6%8E%A5%E8%BE%9E%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener" aria-label="『漢字から広がる韓国語の世界 接辞編』をAmazonで見る">
+          <img src="images/books/kankoku-setsuji.jpg" alt="『漢字から広がる韓国語の世界 接辞編』表紙" loading="lazy">
+          <span class="cover-amazon">Amazon ›</span>
+        </a>
+        <p class="book-lang">韓国語 × 漢字</p>
+        <h3 class="book-title">漢字から広がる韓国語の世界 接辞編</h3>
+        <p class="book-sub">接辞24字で広がる漢字語</p>
+        <p class="book-desc">「的」「性」などの接辞24字で、漢字語を一気に何倍にも増やす接辞編。TOPIK1〜4級語彙、練習アプリつき。</p>
+        <div class="book-links">
+          <a class="pill-link primary" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%81%8B%E3%82%89%E5%BA%83%E3%81%8C%E3%82%8B%E9%9F%93%E5%9B%BD%E8%AA%9E%E3%81%AE%E4%B8%96%E7%95%8C+%E6%8E%A5%E8%BE%9E%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで見る</a>
+          <a class="pill-link ghost" href="https://haeyeon0001-prog.github.io/kanji55-practice/setsuji/" target="_blank" rel="noopener">練習アプリ</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <a class="book-cover" href="https://www.amazon.co.jp/s?k=3%E3%83%B6%E6%9C%88%E3%81%A7%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97+%E9%9F%93%E5%9B%BD%E8%AA%9E+%E6%96%99%E7%90%86%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener" aria-label="『3ヶ月でレベルアップ 韓国語 料理編』をAmazonで見る">
+          <img src="images/books/kankokugo-ryori.jpg" alt="『3ヶ月でレベルアップ 韓国語 料理編』表紙" loading="lazy">
+          <span class="cover-amazon">Amazon ›</span>
+        </a>
+        <p class="book-lang">韓国語</p>
+        <h3 class="book-title">3ヶ月でレベルアップ 韓国語 料理編</h3>
+        <p class="book-sub">音声60トラック・復習アプリつき</p>
+        <p class="book-desc">キムチチャーハン、ビビンバ、トックク……季節の韓国料理12品で会話と文法を学ぶ全12課。初中級レベル。</p>
+        <div class="book-links">
+          <a class="pill-link primary" href="https://www.amazon.co.jp/s?k=3%E3%83%B6%E6%9C%88%E3%81%A7%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97+%E9%9F%93%E5%9B%BD%E8%AA%9E+%E6%96%99%E7%90%86%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで見る</a>
+          <a class="pill-link ghost" href="https://haeyeon0001-prog.github.io/3c2k3hwuhu/" target="_blank" rel="noopener">音声・アプリ</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <a class="book-cover" href="https://www.amazon.co.jp/s?k=3%E3%83%B6%E6%9C%88%E3%81%A7%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97+%E4%B8%AD%E5%9B%BD%E8%AA%9E+%E6%96%99%E7%90%86%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener" aria-label="『3ヶ月でレベルアップ 中国語 料理編』をAmazonで見る">
+          <img src="images/books/chugokugo-ryori.jpg" alt="『3ヶ月でレベルアップ 中国語 料理編』表紙" loading="lazy">
+          <span class="cover-amazon">Amazon ›</span>
+        </a>
+        <p class="book-lang">中国語</p>
+        <h3 class="book-title">3ヶ月でレベルアップ 中国語 料理編</h3>
+        <p class="book-sub">HSK3〜4級レベル</p>
+        <p class="book-desc">餃子、麻婆豆腐、北京ダック、火鍋など中国各地の料理12品で学ぶ全12課。本文音声93本、単語カード282語の練習アプリつき。</p>
+        <div class="book-links">
+          <a class="pill-link primary" href="https://www.amazon.co.jp/s?k=3%E3%83%B6%E6%9C%88%E3%81%A7%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97+%E4%B8%AD%E5%9B%BD%E8%AA%9E+%E6%96%99%E7%90%86%E7%B7%A8+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで見る</a>
+          <a class="pill-link ghost" href="https://haeyeon0001-prog.github.io/chinese-cuisine/" target="_blank" rel="noopener">音声・アプリ</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <a class="book-cover" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%80%81%E4%B8%89%E5%BA%A6%E8%BF%B7%E3%81%86+%E7%82%B9%E3%81%A8%2C%E7%B7%9A+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener" aria-label="『漢字、三度迷う』をAmazonで見る">
+          <img src="images/books/kanji-sando.jpg" alt="『漢字、三度迷う』表紙" loading="lazy">
+          <span class="cover-amazon">Amazon ›</span>
+        </a>
+        <p class="book-lang">日中韓 対照</p>
+        <h3 class="book-title">漢字、三度迷う</h3>
+        <p class="book-sub">点と、線 ― 日中韓 同形漢字語の物語</p>
+        <p class="book-desc">同じ漢字語が、中国語・日本語・韓国語でどう意味を変えるのか。「老婆」をはじめ、三つの言語を行き来する漢字語の物語。</p>
+        <div class="book-links">
+          <a class="pill-link primary" href="https://www.amazon.co.jp/s?k=%E6%BC%A2%E5%AD%97%E3%80%81%E4%B8%89%E5%BA%A6%E8%BF%B7%E3%81%86+%E7%82%B9%E3%81%A8%2C%E7%B7%9A+%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで見る</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="books-all fade-in"><a class="profile-cta" href="https://www.amazon.co.jp/s?k=%E7%99%BD%E6%B5%B7%E7%87%95" target="_blank" rel="noopener">Amazonで著書をすべて見る <span class="arrow">→</span></a></p>
+  </div>
+</section>
+
+<!-- Apps -->
+<section class="section" id="apps">
+  <div class="section-inner">
+    <p class="section-label fade-in">アプリ</p>
+    <h2 class="section-title fade-in">AIでつくった学習アプリ。</h2>
+    <p class="section-lead fade-in">授業や自分の学習のために、AIと一緒に開発したWebアプリです。インストール不要で、スマートフォンのブラウザからそのまま使えます。ホーム画面に追加すればアプリのように起動できます。</p>
+
+    <p class="app-group-title fade-in">発音</p>
+    <div class="app-grid fade-in">
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/korean-pronunsation/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #7BBFEA, #4A9ED6);">가</div>
+        <h3>韓国語 発音マスター</h3>
+        <p>子音19・母音21、パッチム、平音・激音・濃音の聞き分け、字母の組み立てゲーム。手本を聞いて自分の声を録音し、比べて確認できます。</p>
+        <div class="app-meta"><span class="blog-tag sakura">韓国語</span><span class="app-open">開く ›</span></div>
+      </a>
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/korean-liaison-animation/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #E8A0BF, #D87DA8);">연</div>
+        <h3>連音化アニメーション</h3>
+        <p>パッチムが次の音節へ流れていく様子をアニメーションで表示。韓国語の発音変化のしくみを目で見て理解できます。</p>
+        <div class="app-meta"><span class="blog-tag sakura">韓国語</span><span class="app-open">開く ›</span></div>
+      </a>
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/chinese-pronunciation/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #E27D6A, #B3261E);">声</div>
+        <h3>中国語 発音練習</h3>
+        <p>4つの声調、二字の声調の組み合わせ、基本50単語を練習。自分の発音をAIが採点します。</p>
+        <div class="app-meta"><span class="blog-tag sky">中国語</span><span class="app-open">開く ›</span></div>
+      </a>
+    </div>
+
+    <p class="app-group-title fade-in">教科書と連動</p>
+    <div class="app-grid fade-in">
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/3c2k3hwuhu/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #B0527C, #8C3A5E);">요</div>
+        <h3>韓国語 料理編 音声・復習アプリ</h3>
+        <p>全12課・60トラックの音声と、ことばカード・文法・書き取りの復習アプリ。本の各課のQRコードからも開けます。</p>
+        <div class="app-meta"><span class="blog-tag sakura">韓国語</span><span class="app-open">開く ›</span></div>
+      </a>
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/chinese-cuisine/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #C8413A, #8E1E18);">菜</div>
+        <h3>中国語 料理編 音声・練習アプリ</h3>
+        <p>本文音声93本、単語カード282語、4択クイズ、書き取り。話者ごと・ゆっくり版の音声も収録しています。</p>
+        <div class="app-meta"><span class="blog-tag sky">中国語</span><span class="app-open">開く ›</span></div>
+      </a>
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/kanji55-practice/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #4FA83A, #2E7A2A);">漢</div>
+        <h3>漢字から広がる韓国語の世界 練習アプリ</h3>
+        <p>入門編・中級編・接辞編に対応。漢字ドリル・漢字探し・漢字⇔ハングルのマッチング・文章穴埋めの4モードで、韓国語の漢字語を身につけます。</p>
+        <div class="app-meta"><span class="blog-tag sakura">韓国語</span><span class="app-open">開く ›</span></div>
+      </a>
+    </div>
+
+    <p class="app-group-title fade-in">英語</p>
+    <div class="app-grid fade-in">
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/ielts-speaking-coach/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #8E8CE0, #5B58C4);">S</div>
+        <h3>IELTS Speaking Coach</h3>
+        <p>Part 1〜3の模擬試験、約300問・キューカード45枚。音声入力とAI音声の読み上げで、スピーキングを一人で練習できます。</p>
+        <div class="app-meta"><span class="blog-tag sky">英語</span><span class="app-open">開く ›</span></div>
+      </a>
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/ielts-daily-tracker/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #6FB6C9, #2F7F95);">I</div>
+        <h3>IELTS 統合学習アプリ</h3>
+        <p>短文暗記カリキュラム、弱点補強、速読、ライティング添削、学習統計。毎日の学習を一か所で管理します。</p>
+        <div class="app-meta"><span class="blog-tag sky">英語</span><span class="app-open">開く ›</span></div>
+      </a>
+      <a class="app-card" href="https://haeyeon0001-prog.github.io/chalk-and-tram/" target="_blank" rel="noopener">
+        <div class="app-icon" style="background: linear-gradient(135deg, #4C9A8B, #256B5F);">C</div>
+        <h3>Chalk &amp; Tram</h3>
+        <p>90日間の英語学習プログラム。オーストラリア・ニュージーランド英語の音声で、作文とテストを積み重ねていきます。</p>
+        <div class="app-meta"><span class="blog-tag sky">英語</span><span class="app-open">開く ›</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -760,6 +1131,8 @@
     <div class="footer-links">
       <a href="#about">運営者紹介</a>
       <a href="#purpose">このサイトについて</a>
+      <a href="#books">著書</a>
+      <a href="#apps">アプリ</a>
       <a href="#examples">共有例</a>
       <a href="#blog">ブログ</a>
     </div>
