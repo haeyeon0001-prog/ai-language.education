@@ -492,6 +492,71 @@
     color: var(--text-tertiary);
   }
 
+  /* ── Contact ── */
+  .contact-form {
+    margin-top: 40px;
+    max-width: 680px;
+    display: grid;
+    gap: 18px;
+  }
+
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  .contact-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .contact-form .req { color: var(--sakura-deep); margin-left: 4px; }
+  .contact-form .opt { color: var(--text-tertiary); font-weight: 400; margin-left: 4px; }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary);
+    background: var(--bg);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 10px;
+    padding: 11px 12px;
+    width: 100%;
+  }
+
+  .contact-form textarea { min-height: 160px; resize: vertical; line-height: 1.7; }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus { outline: 2px solid var(--sky); outline-offset: 1px; border-color: transparent; }
+
+  .contact-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .contact-note { font-size: 12px; color: var(--text-tertiary); line-height: 1.7; }
+
+  .contact-submit {
+    justify-self: start;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--text-primary);
+    border: 0;
+    border-radius: 100px;
+    padding: 12px 28px;
+    cursor: pointer;
+  }
+
+  .contact-submit:disabled { opacity: .5; cursor: default; }
+
+  .contact-status { font-size: 14px; line-height: 1.7; }
+  .contact-status:empty { display: none; }
+  .contact-status.ok { color: #248A3D; }
+  .contact-status.err { color: #c0392b; }
+
   /* ── Footer ── */
   .footer {
     background: var(--bg-alt);
@@ -552,6 +617,7 @@
     .cover-amazon { display: none; }
     .book-title { font-size: 17px; }
     .app-grid { grid-template-columns: 1fr; }
+    .contact-row { grid-template-columns: 1fr; }
     .nav-links { display: none; }
   }
 </style>
@@ -567,6 +633,7 @@
       <li><a href="#purpose">关于本站</a></li>
       <li><a href="#books">著作</a></li>
       <li><a href="#apps">应用</a></li>
+      <li><a href="#contact">联系我</a></li>
     </ul>
     <div class="lang-pills">
       <a href="index.html" hreflang="ja" lang="ja">JP</a>
@@ -813,6 +880,48 @@
   </div>
 </section>
 
+<!-- Contact -->
+<!-- 送信先は FormSubmit（https://formsubmit.co、登録不要）。data-endpoint の宛先に届く -->
+<section class="section alt" id="contact">
+  <div class="section-inner">
+    <p class="section-label fade-in">联系我</p>
+    <h2 class="section-title fade-in">欢迎随时联系。</h2>
+    <p class="section-lead fade-in">有关教材、讲座・培训邀请或 AI 应用咨询等，请通过此表单联系。确认内容后我会回复您。欢迎使用中文。</p>
+
+    <form class="contact-form fade-in" id="contact-form" data-endpoint="https://formsubmit.co/ajax/haeyeon0001@gmail.com" novalidate>
+      <div class="contact-row">
+        <label><span>姓名<span class="req">必填</span></span>
+          <input name="name" type="text" autocomplete="name" maxlength="100" required>
+        </label>
+        <label><span>电子邮箱<span class="req">必填</span></span>
+          <input name="email" type="email" autocomplete="email" maxlength="200" required>
+        </label>
+      </div>
+      <div class="contact-row">
+        <label><span>所属单位<span class="opt">选填</span></span>
+          <input name="affiliation" type="text" autocomplete="organization" maxlength="200">
+        </label>
+        <label><span>咨询类别<span class="req">必填</span></span>
+          <select name="category" required>
+            <option value="">请选择</option>
+            <option value="教材・アプリについて">关于教材・应用</option>
+            <option value="講演・研修のご依頼">讲座・培训邀请</option>
+            <option value="共同研究・お仕事のご相談">合作研究・工作洽谈</option>
+            <option value="その他">其他</option>
+          </select>
+        </label>
+      </div>
+      <label><span>咨询内容<span class="req">必填</span></span>
+        <textarea name="message" maxlength="5000" required></textarea>
+      </label>
+      <div class="contact-hp" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+      <p class="contact-note">您填写的信息仅用于回复您的咨询。</p>
+      <button class="contact-submit" type="submit">发送</button>
+      <p data-required="请填写姓名、电子邮箱、咨询类别和内容。" data-email="请输入正确的电子邮箱。" data-sending="正在发送…" data-ok="已收到您的咨询，谢谢。" data-fail="发送失败，请稍后再试。" class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
@@ -821,10 +930,48 @@
       <a href="#purpose">关于本站</a>
       <a href="#books">著作</a>
       <a href="#apps">应用</a>
+      <a href="#contact">联系我</a>
     </div>
     <p>© 2026 白海燕 — AI ✖️ 语言教育・语言学习</p>
   </div>
 </footer>
+
+<script>
+// お問い合わせフォーム（FormSubmit に送信）
+(function () {
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('contact-status');
+  var msg = {
+    required: status.dataset.required || 'お名前・メールアドレス・お問い合わせの種類・内容を入力してください。',
+    email: status.dataset.email || 'メールアドレスを正しく入力してください。',
+    sending: status.dataset.sending || '送信しています…',
+    ok: status.dataset.ok || 'お問い合わせを受け付けました。ありがとうございました。',
+    fail: status.dataset.fail || '送信できませんでした。時間をおいてもう一度お試しください。'
+  };
+  function show(text, cls) { status.textContent = text; status.className = 'contact-status' + (cls ? ' ' + cls : ''); }
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var f = form.elements;
+    if (!f.name.value.trim() || !f.email.value.trim() || !f.category.value || !f.message.value.trim()) return show(msg.required, 'err');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) return show(msg.email, 'err');
+    var endpoint = form.dataset.endpoint;
+    if (!endpoint) return show(msg.fail, 'err');
+    var btn = form.querySelector('.contact-submit');
+    btn.disabled = true;
+    show(msg.sending);
+    var data = new FormData(form);
+    data.append('_subject', '【baihaiyan.com】' + f.category.value);
+    data.append('page', location.href);
+    data.append('_template', 'table');
+    data.append('_captcha', 'false');
+    fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { if (String(j.success) !== 'true') throw new Error(j.message); form.reset(); show(msg.ok, 'ok'); })
+      .catch(function () { show(msg.fail, 'err'); })
+      .then(function () { btn.disabled = false; });
+  });
+})();
+</script>
 
 <script>
 // Scroll fade-in

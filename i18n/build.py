@@ -179,6 +179,34 @@ T = [
     (">🔒 音声・アプリ</a>", ">🔒 Audio &amp; app</a>", ">🔒 음성・앱</a>", ">🔒 音频・应用</a>"),
     ("Amazonで著書をすべて見る <span", "See all books on Amazon <span", "Amazon에서 저서 모두 보기 <span", "在亚马逊查看全部著作 <span"),
 
+    # ── contact
+    ('<a href="#contact">お問い合わせ</a>', '<a href="#contact">Contact</a>', '<a href="#contact">문의</a>', '<a href="#contact">联系我</a>'),
+    ('<p class="section-label fade-in">お問い合わせ</p>', '<p class="section-label fade-in">Contact</p>', '<p class="section-label fade-in">문의</p>', '<p class="section-label fade-in">联系我</p>'),
+    ("お気軽にどうぞ。", "Get in touch.", "편하게 문의해 주세요.", "欢迎随时联系。"),
+    ("教材や講演・研修のご依頼、AI活用についてのご相談など、こちらのフォームからお送りください。内容を確認のうえ、ご返信いたします。",
+     "For questions about the materials, requests for talks or workshops, or advice on using AI, please use this form. I will reply after reviewing your message. Japanese, Korean, Chinese and English are all welcome.",
+     "교재, 강연・연수 의뢰, AI 활용에 관한 상담 등은 이 양식으로 보내 주세요. 내용을 확인한 뒤 답장드리겠습니다. 한국어로 보내셔도 됩니다.",
+     "有关教材、讲座・培训邀请或 AI 应用咨询等，请通过此表单联系。确认内容后我会回复您。欢迎使用中文。"),
+    ("<span>お名前<span class=\"req\">必須</span></span>", "<span>Name<span class=\"req\">Required</span></span>", "<span>이름<span class=\"req\">필수</span></span>", "<span>姓名<span class=\"req\">必填</span></span>"),
+    ("<span>メールアドレス<span class=\"req\">必須</span></span>", "<span>Email<span class=\"req\">Required</span></span>", "<span>이메일 주소<span class=\"req\">필수</span></span>", "<span>电子邮箱<span class=\"req\">必填</span></span>"),
+    ("<span>ご所属<span class=\"opt\">任意</span></span>", "<span>Affiliation<span class=\"opt\">Optional</span></span>", "<span>소속<span class=\"opt\">선택</span></span>", "<span>所属单位<span class=\"opt\">选填</span></span>"),
+    ("<span>お問い合わせの種類<span class=\"req\">必須</span></span>", "<span>Topic<span class=\"req\">Required</span></span>", "<span>문의 종류<span class=\"req\">필수</span></span>", "<span>咨询类别<span class=\"req\">必填</span></span>"),
+    ("<span>お問い合わせ内容<span class=\"req\">必須</span></span>", "<span>Message<span class=\"req\">Required</span></span>", "<span>문의 내용<span class=\"req\">필수</span></span>", "<span>咨询内容<span class=\"req\">必填</span></span>"),
+    ('<option value="">選択してください</option>', '<option value="">Please select</option>', '<option value="">선택해 주세요</option>', '<option value="">请选择</option>'),
+    ('<option value="教材・アプリについて">教材・アプリについて</option>', '<option value="教材・アプリについて">Textbooks &amp; apps</option>', '<option value="教材・アプリについて">교재・앱 관련</option>', '<option value="教材・アプリについて">关于教材・应用</option>'),
+    ('<option value="講演・研修のご依頼">講演・研修のご依頼</option>', '<option value="講演・研修のご依頼">Talks &amp; workshops</option>', '<option value="講演・研修のご依頼">강연・연수 의뢰</option>', '<option value="講演・研修のご依頼">讲座・培训邀请</option>'),
+    ('<option value="共同研究・お仕事のご相談">共同研究・お仕事のご相談</option>', '<option value="共同研究・お仕事のご相談">Research or work inquiries</option>', '<option value="共同研究・お仕事のご相談">공동 연구・업무 상담</option>', '<option value="共同研究・お仕事のご相談">合作研究・工作洽谈</option>'),
+    ('<option value="その他">その他</option>', '<option value="その他">Other</option>', '<option value="その他">기타</option>', '<option value="その他">其他</option>'),
+    ("ご入力いただいた情報は、お問い合わせへの回答のためにのみ使用します。",
+     "The information you enter is used only to reply to your inquiry.",
+     "입력하신 정보는 문의에 대한 답변을 위해서만 사용합니다.",
+     "您填写的信息仅用于回复您的咨询。"),
+    ('<button class="contact-submit" type="submit">送信する</button>', '<button class="contact-submit" type="submit">Send</button>', '<button class="contact-submit" type="submit">보내기</button>', '<button class="contact-submit" type="submit">发送</button>'),
+    ('<p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>',
+     '<p data-required="Please fill in your name, email, topic and message." data-email="Please enter a valid email address." data-sending="Sending…" data-ok="Thank you. Your message has been sent." data-fail="Your message could not be sent. Please try again later." class="contact-status" id="contact-status" role="status" aria-live="polite"></p>',
+     '<p data-required="이름・이메일 주소・문의 종류・내용을 입력해 주세요." data-email="이메일 주소를 올바르게 입력해 주세요." data-sending="보내는 중…" data-ok="문의가 접수되었습니다. 감사합니다." data-fail="보내지 못했습니다. 잠시 후 다시 시도해 주세요." class="contact-status" id="contact-status" role="status" aria-live="polite"></p>',
+     '<p data-required="请填写姓名、电子邮箱、咨询类别和内容。" data-email="请输入正确的电子邮箱。" data-sending="正在发送…" data-ok="已收到您的咨询，谢谢。" data-fail="发送失败，请稍后再试。" class="contact-status" id="contact-status" role="status" aria-live="polite"></p>'),
+
     # ── apps
     ('<p class="section-label fade-in">アプリ</p>', '<p class="section-label fade-in">Apps</p>', '<p class="section-label fade-in">앱</p>', '<p class="section-label fade-in">应用</p>'),
     ("AIでつくった学習アプリ。", "Learning apps built with AI.", "AI로 만든 학습 앱.", "用 AI 打造的学习应用。"),
@@ -300,6 +328,8 @@ def main():
         # 翻訳漏れチェック（<style>・書名・URL以外に日本語のかな・漢字が残っていないか）
         body = re.sub(r"<style>.*?</style>", "", html, flags=re.S)
         body = re.sub(r"<script[^>]*>.*?</script>", "", body, flags=re.S)
+        body = re.sub(r"<!--.*?-->", "", body, flags=re.S)
+        body = re.sub(r'value="[^"]*"', "", body)
         body = re.sub(r'(href|src)="[^"]*"', "", body)
         body = re.sub(r'<h3 class="book-title">.*?</h3>', "", body)
         body = re.sub(r"[“『《].*?[”』》]", "", body)
