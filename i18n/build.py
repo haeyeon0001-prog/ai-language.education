@@ -193,10 +193,14 @@ T = [
      "这些是我为课堂和自身学习与 AI 一起开发的网页应用。无需安装，用手机浏览器即可直接使用；添加到主屏幕后可像应用一样启动。界面主要为日文。"),
     ('<p class="app-group-title fade-in">発音</p>', '<p class="app-group-title fade-in">Pronunciation</p>', '<p class="app-group-title fade-in">발음</p>', '<p class="app-group-title fade-in">发音</p>'),
     ('<p class="app-group-title fade-in">教科書と連動</p>', '<p class="app-group-title fade-in">Textbook companions</p>', '<p class="app-group-title fade-in">교재 연동</p>', '<p class="app-group-title fade-in">教材配套</p>'),
-    ("🔒 ご利用には登録（Googleアカウント・氏名・所属）が必要です。アプリを開くと登録画面が表示されます。",
-     "🔒 Registration (Google account, full name and affiliation) is required. You will see the sign-up screen when you open an app.",
-     "🔒 이용하려면 등록(Google 계정・실명・소속)이 필요합니다. 앱을 열면 등록 화면이 표시됩니다.",
-     "🔒 使用前需要注册（Google 账号、真实姓名、所属单位）。打开应用时会显示注册页面。"),
+    ("🔒 教科書と連動したアプリは、登録した方のみご覧いただけます。Googleアカウントでログインし、初回のみ氏名と所属をご登録ください。",
+     "🔒 The textbook companion apps are available to registered users only. Sign in with your Google account and, the first time only, register your full name and affiliation.",
+     "🔒 교재 연동 앱은 등록한 분만 보실 수 있습니다. Google 계정으로 로그인하고, 처음 한 번만 실명과 소속을 등록해 주세요.",
+     "🔒 教材配套应用仅限注册用户查看。请使用 Google 账号登录，首次登录时登记真实姓名和所属单位。"),
+    ('id="companion-login" href="account/login.html">Googleでログイン</a>',
+     'id="companion-login" href="account/login.html">Sign in with Google</a>',
+     'id="companion-login" href="account/login.html">Google로 로그인</a>',
+     'id="companion-login" href="account/login.html">使用 Google 登录</a>'),
     ('<p class="app-group-title fade-in">英語</p>', '<p class="app-group-title fade-in">English</p>', '<p class="app-group-title fade-in">영어</p>', '<p class="app-group-title fade-in">英语</p>'),
     ("<h3>韓国語 発音マスター</h3>", "<h3>Korean Pronunciation Master</h3>", "<h3>한국어 발음 마스터</h3>", "<h3>韩语发音大师</h3>"),
     ("子音19・母音21、パッチム、平音・激音・濃音の聞き分け、字母の組み立てゲーム。手本を聞いて自分の声を録音し、比べて確認できます。",
@@ -337,6 +341,7 @@ def main():
 
         # 翻訳漏れチェック（<style>・書名・URL以外に日本語のかな・漢字が残っていないか）
         body = re.sub(r"<style>.*?</style>", "", html, flags=re.S)
+        body = re.sub(r"<script[^>]*>.*?</script>", "", body, flags=re.S)
         body = re.sub(r'(href|src)="[^"]*"', "", body)
         body = re.sub(r'<h3 class="book-title">.*?</h3>', "", body)
         body = re.sub(r"[“『《].*?[”』》]", "", body)
