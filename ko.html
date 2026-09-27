@@ -296,55 +296,6 @@
     line-height: 1.65;
   }
 
-  /* ── Examples ── */
-  .example-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-top: 48px;
-  }
-
-  .example-item {
-    background: var(--bg-alt);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .section:not(.alt) .example-item {
-    background: var(--bg-alt);
-  }
-
-  .section.alt .example-item {
-    background: var(--bg);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  .example-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-
-  .example-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-
-  .example-badge.tool { background: rgba(123,191,234,0.2); color: var(--sky-deep); }
-  .example-badge.material { background: rgba(232,160,191,0.2); color: var(--sakura-deep); }
-  .example-badge.workflow { background: rgba(52,199,89,0.15); color: #248A3D; }
-
-  .example-item p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
   /* ── Tags ── */
   .tag {
     display: inline-block;
@@ -606,7 +557,6 @@
     .section-lead { font-size: 17px; }
     .profile-grid { grid-template-columns: 1fr; gap: 32px; }
     .purpose-cards { grid-template-columns: 1fr; }
-    .example-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 36px; }
     .book-card { display: grid; grid-template-columns: 116px 1fr; column-gap: 18px; align-items: start; }
     .book-card > .book-cover { grid-row: 1 / span 6; }
@@ -629,7 +579,6 @@
       <li><a href="#purpose">사이트 소개</a></li>
       <li><a href="#books">저서</a></li>
       <li><a href="#apps">앱</a></li>
-      <li><a href="#examples">활용 사례</a></li>
     </ul>
     <div class="lang-pills">
       <a href="index.html" hreflang="ja" lang="ja">JP</a>
@@ -877,42 +826,6 @@
   </div>
 </section>
 
-<!-- Examples -->
-<section class="section alt" id="examples">
-  <div class="section-inner">
-    <p class="section-label fade-in">활용 사례</p>
-    <h2 class="section-title fade-in">실제로 쓰고 있는 방법.</h2>
-    <p class="section-lead fade-in">수업과 준비에 활용하고 있는 사례입니다. 앞으로도 수시로 추가해 나가겠습니다.</p>
-
-    <div class="example-grid fade-in">
-      <div class="example-item">
-        <span class="example-badge tool">도구</span>
-        <p>ChatGPT / Claude를 활용한 한국어・중국어 연습 문제 자동 생성</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">교재</span>
-        <p>AI로 만든 어휘 목록・단어장 템플릿</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">워크플로</span>
-        <p>학생 작문에 대한 AI 피드백 활용 방법</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">교재</span>
-        <p>AI를 활용한 수업 슬라이드의 효율적인 제작 절차</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge tool">도구</span>
-        <p>TTS(텍스트 음성 변환)를 활용한 듣기 교재 제작</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">워크플로</span>
-        <p>시험 문제 변형의 자동 생성과 정리</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
@@ -921,7 +834,6 @@
       <a href="#purpose">사이트 소개</a>
       <a href="#books">저서</a>
       <a href="#apps">앱</a>
-      <a href="#examples">활용 사례</a>
     </div>
     <p>© 2026 백해연 — AI ✖️ 언어교육・언어학습</p>
   </div>

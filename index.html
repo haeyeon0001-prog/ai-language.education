@@ -296,55 +296,6 @@
     line-height: 1.65;
   }
 
-  /* ── Examples ── */
-  .example-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-top: 48px;
-  }
-
-  .example-item {
-    background: var(--bg-alt);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .section:not(.alt) .example-item {
-    background: var(--bg-alt);
-  }
-
-  .section.alt .example-item {
-    background: var(--bg);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  .example-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-
-  .example-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-
-  .example-badge.tool { background: rgba(123,191,234,0.2); color: var(--sky-deep); }
-  .example-badge.material { background: rgba(232,160,191,0.2); color: var(--sakura-deep); }
-  .example-badge.workflow { background: rgba(52,199,89,0.15); color: #248A3D; }
-
-  .example-item p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
   /* ── Tags ── */
   .tag {
     display: inline-block;
@@ -606,7 +557,6 @@
     .section-lead { font-size: 17px; }
     .profile-grid { grid-template-columns: 1fr; gap: 32px; }
     .purpose-cards { grid-template-columns: 1fr; }
-    .example-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 36px; }
     .book-card { display: grid; grid-template-columns: 116px 1fr; column-gap: 18px; align-items: start; }
     .book-card > .book-cover { grid-row: 1 / span 6; }
@@ -629,7 +579,6 @@
       <li><a href="#purpose">このサイトについて</a></li>
       <li><a href="#books">著書</a></li>
       <li><a href="#apps">アプリ</a></li>
-      <li><a href="#examples">共有例</a></li>
     </ul>
     <div class="lang-pills">
       <a href="index.html" hreflang="ja" lang="ja" class="active" aria-current="page">JP</a>
@@ -877,42 +826,6 @@
   </div>
 </section>
 
-<!-- Examples -->
-<section class="section alt" id="examples">
-  <div class="section-inner">
-    <p class="section-label fade-in">共有例</p>
-    <h2 class="section-title fade-in">実際に使っている方法。</h2>
-    <p class="section-lead fade-in">授業や準備で活用している例です。今後も随時追加していきます。</p>
-
-    <div class="example-grid fade-in">
-      <div class="example-item">
-        <span class="example-badge tool">ツール</span>
-        <p>ChatGPT / Claude を使った韓国語・中国語の練習問題自動生成</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">教材</span>
-        <p>AIで作成した語彙リスト・単語帳テンプレート</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">ワークフロー</span>
-        <p>学生の作文に対するAIフィードバックの活用方法</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">教材</span>
-        <p>AIを使った授業スライドの効率的な作成手順</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge tool">ツール</span>
-        <p>TTS（テキスト読み上げ）によるリスニング教材の作成</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">ワークフロー</span>
-        <p>試験問題のバリエーション自動生成と整理</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
@@ -921,7 +834,6 @@
       <a href="#purpose">このサイトについて</a>
       <a href="#books">著書</a>
       <a href="#apps">アプリ</a>
-      <a href="#examples">共有例</a>
     </div>
     <p>© 2026 白海燕 — AI ✖️ 言語教育・言語学習</p>
   </div>

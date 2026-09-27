@@ -296,55 +296,6 @@
     line-height: 1.65;
   }
 
-  /* ── Examples ── */
-  .example-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-top: 48px;
-  }
-
-  .example-item {
-    background: var(--bg-alt);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .section:not(.alt) .example-item {
-    background: var(--bg-alt);
-  }
-
-  .section.alt .example-item {
-    background: var(--bg);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  .example-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-
-  .example-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-
-  .example-badge.tool { background: rgba(123,191,234,0.2); color: var(--sky-deep); }
-  .example-badge.material { background: rgba(232,160,191,0.2); color: var(--sakura-deep); }
-  .example-badge.workflow { background: rgba(52,199,89,0.15); color: #248A3D; }
-
-  .example-item p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
   /* ── Tags ── */
   .tag {
     display: inline-block;
@@ -606,7 +557,6 @@
     .section-lead { font-size: 17px; }
     .profile-grid { grid-template-columns: 1fr; gap: 32px; }
     .purpose-cards { grid-template-columns: 1fr; }
-    .example-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 36px; }
     .book-card { display: grid; grid-template-columns: 116px 1fr; column-gap: 18px; align-items: start; }
     .book-card > .book-cover { grid-row: 1 / span 6; }
@@ -629,7 +579,6 @@
       <li><a href="#purpose">关于本站</a></li>
       <li><a href="#books">著作</a></li>
       <li><a href="#apps">应用</a></li>
-      <li><a href="#examples">实践案例</a></li>
     </ul>
     <div class="lang-pills">
       <a href="index.html" hreflang="ja" lang="ja">JP</a>
@@ -877,42 +826,6 @@
   </div>
 </section>
 
-<!-- Examples -->
-<section class="section alt" id="examples">
-  <div class="section-inner">
-    <p class="section-label fade-in">实践案例</p>
-    <h2 class="section-title fade-in">我实际在用的方法。</h2>
-    <p class="section-lead fade-in">这些是我在授课和备课中运用的例子，今后会不断补充。</p>
-
-    <div class="example-grid fade-in">
-      <div class="example-item">
-        <span class="example-badge tool">工具</span>
-        <p>使用 ChatGPT / Claude 自动生成韩语、汉语练习题</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">教材</span>
-        <p>用 AI 制作的词汇表和单词本模板</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">工作流程</span>
-        <p>针对学生作文的 AI 反馈运用方法</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">教材</span>
-        <p>用 AI 高效制作课堂幻灯片的步骤</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge tool">工具</span>
-        <p>利用 TTS（文本转语音）制作听力教材</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">工作流程</span>
-        <p>自动生成并整理试题的多种变体</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
@@ -921,7 +834,6 @@
       <a href="#purpose">关于本站</a>
       <a href="#books">著作</a>
       <a href="#apps">应用</a>
-      <a href="#examples">实践案例</a>
     </div>
     <p>© 2026 白海燕 — AI ✖️ 语言教育・语言学习</p>
   </div>

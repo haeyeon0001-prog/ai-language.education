@@ -296,55 +296,6 @@
     line-height: 1.65;
   }
 
-  /* ── Examples ── */
-  .example-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-top: 48px;
-  }
-
-  .example-item {
-    background: var(--bg-alt);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .section:not(.alt) .example-item {
-    background: var(--bg-alt);
-  }
-
-  .section.alt .example-item {
-    background: var(--bg);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  .example-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-
-  .example-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-
-  .example-badge.tool { background: rgba(123,191,234,0.2); color: var(--sky-deep); }
-  .example-badge.material { background: rgba(232,160,191,0.2); color: var(--sakura-deep); }
-  .example-badge.workflow { background: rgba(52,199,89,0.15); color: #248A3D; }
-
-  .example-item p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
   /* ── Tags ── */
   .tag {
     display: inline-block;
@@ -606,7 +557,6 @@
     .section-lead { font-size: 17px; }
     .profile-grid { grid-template-columns: 1fr; gap: 32px; }
     .purpose-cards { grid-template-columns: 1fr; }
-    .example-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 36px; }
     .book-card { display: grid; grid-template-columns: 116px 1fr; column-gap: 18px; align-items: start; }
     .book-card > .book-cover { grid-row: 1 / span 6; }
@@ -629,7 +579,6 @@
       <li><a href="#purpose">This Site</a></li>
       <li><a href="#books">Books</a></li>
       <li><a href="#apps">Apps</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
     <div class="lang-pills">
       <a href="index.html" hreflang="ja" lang="ja">JP</a>
@@ -877,42 +826,6 @@
   </div>
 </section>
 
-<!-- Examples -->
-<section class="section alt" id="examples">
-  <div class="section-inner">
-    <p class="section-label fade-in">Examples</p>
-    <h2 class="section-title fade-in">Methods I actually use.</h2>
-    <p class="section-lead fade-in">Examples from my own teaching and preparation. More will be added over time.</p>
-
-    <div class="example-grid fade-in">
-      <div class="example-item">
-        <span class="example-badge tool">Tool</span>
-        <p>Generating Korean and Chinese practice exercises with ChatGPT / Claude</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">Materials</span>
-        <p>Vocabulary lists and flashcard templates made with AI</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">Workflow</span>
-        <p>Using AI feedback on student compositions</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge material">Materials</span>
-        <p>An efficient workflow for building lesson slides with AI</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge tool">Tool</span>
-        <p>Creating listening materials with TTS (text-to-speech)</p>
-      </div>
-      <div class="example-item">
-        <span class="example-badge workflow">Workflow</span>
-        <p>Generating and organizing variations of exam questions</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
@@ -921,7 +834,6 @@
       <a href="#purpose">This Site</a>
       <a href="#books">Books</a>
       <a href="#apps">Apps</a>
-      <a href="#examples">Examples</a>
     </div>
     <p>© 2026 Haiyan Bai — AI ✖️ Language Education &amp; Learning</p>
   </div>
