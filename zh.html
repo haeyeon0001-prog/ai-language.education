@@ -544,7 +544,14 @@
     letter-spacing: 0.02em;
   }
 
-  .app-group-title + .app-grid { margin-top: 16px; }
+  .app-group-title + .app-grid,
+  .app-group-note + .app-grid { margin-top: 16px; }
+
+  .app-group-note {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
 
   /* ── Footer ── */
   .footer {
@@ -824,6 +831,7 @@
     </div>
 
     <p class="app-group-title fade-in">教材配套</p>
+    <p class="app-group-note fade-in">🔒 使用前需要注册（Google 账号、真实姓名、所属单位）。打开应用时会显示注册页面。</p>
     <div class="app-grid fade-in">
       <a class="app-card" href="https://haeyeon0001-prog.github.io/3c2k3hwuhu/" target="_blank" rel="noopener">
         <div class="app-icon" style="background: linear-gradient(135deg, #B0527C, #8C3A5E);">요</div>
