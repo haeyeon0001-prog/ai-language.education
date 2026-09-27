@@ -544,30 +544,14 @@
     letter-spacing: 0.02em;
   }
 
-  .app-group-title + .app-grid { margin-top: 16px; }
+  .app-group-title + .app-grid,
+  .app-group-note + .app-grid { margin-top: 16px; }
 
-  .locked-panel {
-    margin-top: 16px;
-    background: var(--bg-alt);
-    border-radius: 18px;
-    padding: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+  .app-group-note {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--text-tertiary);
   }
-
-  .locked-panel[hidden], .app-grid[hidden] { display: none; }
-
-  .locked-text {
-    flex: 1 1 320px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .locked-panel .pill-link { padding: 10px 20px; font-size: 14px; }
 
   /* ── Footer ── */
   .footer {
@@ -847,28 +831,25 @@
     </div>
 
     <p class="app-group-title fade-in">教材配套</p>
-    <div class="locked-panel fade-in" id="companion-locked">
-      <p class="locked-text">🔒 教材配套应用仅限注册用户查看。请使用 Google 账号登录，首次登录时登记真实姓名和所属单位。</p>
-      <a class="pill-link primary" id="companion-login" href="account/login.html">使用 Google 登录</a>
-    </div>
-    <div class="app-grid fade-in" id="companion-apps" hidden>
+    <p class="app-group-note fade-in">🔒 仅限注册用户（Google 账号、真实姓名、所属单位）使用。打开应用时会显示登录页面。</p>
+    <div class="app-grid fade-in">
       <a class="app-card" href="https://haeyeon0001-prog.github.io/3c2k3hwuhu/" target="_blank" rel="noopener">
         <div class="app-icon" style="background: linear-gradient(135deg, #B0527C, #8C3A5E);">요</div>
         <h3>韩语料理篇 音频・复习应用</h3>
         <p>全 12 课、60 段音频，以及单词卡、语法、听写复习应用。也可通过书中各课的二维码打开。</p>
-        <div class="app-meta"><span class="tag sakura">韩语</span><span class="app-open">打开 ›</span></div>
+        <div class="app-meta"><span class="tag sakura">韩语</span><span class="app-open">🔒 登录后打开 ›</span></div>
       </a>
       <a class="app-card" href="https://haeyeon0001-prog.github.io/chinese-cuisine/" target="_blank" rel="noopener">
         <div class="app-icon" style="background: linear-gradient(135deg, #C8413A, #8E1E18);">菜</div>
         <h3>汉语料理篇 音频・练习应用</h3>
         <p>93 段课文音频、282 张单词卡、四选一测验和听写。还收录了分角色和慢速版音频。</p>
-        <div class="app-meta"><span class="tag sky">汉语</span><span class="app-open">打开 ›</span></div>
+        <div class="app-meta"><span class="tag sky">汉语</span><span class="app-open">🔒 登录后打开 ›</span></div>
       </a>
       <a class="app-card" href="https://haeyeon0001-prog.github.io/kanji55-practice/" target="_blank" rel="noopener">
         <div class="app-icon" style="background: linear-gradient(135deg, #4FA83A, #2E7A2A);">漢</div>
         <h3>从汉字拓展的韩语世界 练习应用</h3>
         <p>对应入门篇、中级篇、词缀篇。通过汉字练习、找汉字、汉字⇔韩文配对、句子填空四种模式掌握韩语汉字词。</p>
-        <div class="app-meta"><span class="tag sakura">韩语</span><span class="app-open">打开 ›</span></div>
+        <div class="app-meta"><span class="tag sakura">韩语</span><span class="app-open">🔒 登录后打开 ›</span></div>
       </a>
     </div>
 
@@ -945,22 +926,6 @@
     <p>© 2026 白海燕 — AI ✖️ 语言教育・语言学习</p>
   </div>
 </footer>
-
-<script type="module">
-// 教科書連動アプリの一覧は、ログインして登録を済ませた人にだけ表示する
-import { enabled, currentUser, hasProfile } from "./account/auth.js";
-const locked = document.getElementById("companion-locked");
-const apps = document.getElementById("companion-apps");
-const login = document.getElementById("companion-login");
-const next = new URL("#apps", location.href.split("#")[0]).href;
-login.href = "account/login.html?next=" + encodeURIComponent(next);
-const unlock = () => { locked.hidden = true; apps.hidden = false; apps.classList.add("visible"); };
-(async () => {
-  if (!enabled) return unlock();
-  const user = await currentUser();
-  if (user && (await hasProfile(user))) unlock();
-})().catch((e) => console.error("[login]", e));
-</script>
 
 <script>
 // Scroll fade-in
